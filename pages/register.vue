@@ -1,38 +1,31 @@
 <template>
-  <div class="grid min-h-screen place-items-center">
+  <div class="flex h-screen items-center justify-center">
     <form
-      class="grid w-full max-w-xl gap-5 rounded-md bg-slate-50 p-10 outline-dashed outline-slate-200"
+      class="flex w-full max-w-md flex-col gap-5 rounded-md bg-slate-50 p-10 outline outline-slate-100"
     >
-      <h1 class="text-center text-3xl font-bold">Create an account</h1>
+      <h1 class="mb-4 text-center text-3xl font-bold">Create your account</h1>
 
-      <div class="grid gap-5">
-        <FormInput type="email"> Email address </FormInput>
-        <FormInput type="text"> Username </FormInput>
-        <FormInput type="password"> Password </FormInput>
-        <FormInput type="password"> Confirm your password </FormInput>
-      </div>
+      <RegisterInput type="email" :state="useEmail" required>
+        E-mail address
+      </RegisterInput>
+      <RegisterInput id="username" type="text" :state="useUsername" required>
+        Username
+      </RegisterInput>
+      <RegisterInput type="password" :state="usePassword" required>
+        Password
+      </RegisterInput>
 
-      <div class="grid gap-3">
-        <button
+      <div class="mt-6 flex flex-col gap-4">
+        <input
           type="submit"
-          class="mt-4 rounded-md bg-green-400 py-3 font-semibold duration-200 hover:bg-green-300"
-          @click="createAccount"
-        >
-          Continue
-        </button>
-        <span class="text-center text-sm text-slate-500">
-          By registering, you agree with our
-          <NuxtLink
-            to="/"
-            class="text-blue-600 duration-200 hover:text-blue-400"
-            >Terms of Service</NuxtLink
-          >
-          and
-          <NuxtLink
-            to="/"
-            class="text-blue-600 duration-200 hover:text-blue-400"
-            >Privacy Police</NuxtLink
-          >.
+          value="Continue"
+          class="cursor-pointer rounded-md bg-green-500 py-3 font-semibold text-white duration-150 hover:bg-green-400 hover:shadow-md"
+          @click="register"
+        />
+        <span class="text-sm text-slate-500">
+          By registering, you agree with Mojito's
+          <RegisterLink to="/">Terms of Service</RegisterLink> and
+          <RegisterLink to="/">Privacy Police</RegisterLink>.
         </span>
       </div>
     </form>
@@ -40,8 +33,20 @@
 </template>
 
 <script setup lang="ts">
-function createAccount(event: MouseEvent) {
+const useEmail = () => useState<string>();
+const useUsername = () => useState<string>();
+const usePassword = () => useState<string>();
+
+const register = (event: MouseEvent) => {
   event.preventDefault();
-  console.debug('Creating account...');
-}
+
+  const email = useEmail().value;
+  const username = useUsername().value;
+  const password = usePassword().value;
+
+  const payload = { email, username, password };
+  console.log(payload);
+
+  // useFetch('...', { method: 'POST', body: JSON.stringify(payload) });
+};
 </script>
