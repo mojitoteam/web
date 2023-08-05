@@ -21,6 +21,7 @@ SHELL [ "/bin/bash", "-eo", "pipefail", "-c" ]
 RUN apt-get update \
   && apt-get upgrade -y \
   && apt-get install -y --no-install-recommends \
+    build-essential \
     bash \
     git \
   # Cleaning cache:
