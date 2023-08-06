@@ -18,13 +18,12 @@
       :id="inputId"
       v-model="model"
       class="rounded-md border-2 px-3 py-2 text-slate-700"
-      :class="errorClasses"
+      :class="errors.length > 0 ? errorClasses : inputClasses"
       :type="type"
       :required="required"
     />
   </div>
 </template>
-<!-- :class="{'bg-red-50 border-red-300 focus:outline-red-400': errors && errors.length > 0}" -->
 
 <script lang="ts">
 export default {
@@ -36,18 +35,14 @@ export default {
     required: Boolean,
   },
   setup(props) {
-    const errorClasses =
-      props.errors.length > 0
-        ? 'bg-red-50 border-red-200 focus:outline-red-400'
-        : 'bg-slate-100 border-slate-200 focus:outline-green-500';
-
     return {
       // For some reason, ESLint doesn't like when we use `props.state()`
       // directly. So we have to wrap it in an IIFE, unfortunately.
       model: (() => props.state())(),
       inputId: props.id || props.type,
-      errorClasses,
-    };
+      errorClasses: 'bg-red-50 border-red-200 focus:outline-red-400',
+      inputClasses: 'bg-slate-100 border-slate-200 focus:outline-green-500',
+    }
   },
-};
+}
 </script>

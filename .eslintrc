@@ -1,3 +1,10 @@
 {
-  "extends": ["@nuxtjs/eslint-config-typescript"]
+  "root": true,
+  "ignorePatterns": ["node_modules/**", ".nuxt/**"],
+  "extends": ["prettier", "@nuxtjs/eslint-config-typescript"],
+  "rules": {
+    "semi": "off",
+    "comma-dangle": "off",
+    "max-len": ["error", { "code": 80, "tabWidth": 2 }]
+  }
 }

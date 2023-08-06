@@ -59,26 +59,26 @@
 
 <script setup lang="ts">
 interface UsersResponse {
-  token: string;
+  token: string
 }
 
-const useEmail = () => useState<string>();
-const useUsername = () => useState<string>();
-const usePassword = () => useState<string>();
+const useEmail = () => useState<string>()
+const useUsername = () => useState<string>()
+const usePassword = () => useState<string>()
 
-const errors = useState<{ [key: string]: string[] }>(() => Object());
+const errors = useState<{ [key: string]: string[] }>(() => Object())
 
 const register = async (event: MouseEvent) => {
-  event.preventDefault();
+  event.preventDefault()
 
-  const config = useRuntimeConfig();
-  const apiBase = config.public.apiBase;
+  const config = useRuntimeConfig()
+  const apiBase = config.public.apiBase
 
-  const email = useEmail().value;
-  const username = useUsername().value;
-  const password = usePassword().value;
+  const email = useEmail().value
+  const username = useUsername().value
+  const password = usePassword().value
 
-  const payload = { email, username, password };
+  const payload = { email, username, password }
 
   await useFetch<UsersResponse>(`${apiBase}/users`, {
     method: 'POST',
@@ -86,16 +86,16 @@ const register = async (event: MouseEvent) => {
 
     onResponse({ response }) {
       if (!response.ok) {
-        return;
+        return
       }
 
-      localStorage.setItem('token', response._data.token);
-      navigateTo('/app');
+      localStorage.setItem('token', response._data.token)
+      navigateTo('/app')
     },
 
     onResponseError({ response }) {
-      errors.value = response._data;
+      errors.value = response._data
     },
-  });
-};
+  })
+}
 </script>

@@ -11,9 +11,9 @@ services:
       args:
         - NODE_ENV=development
       cache_from:
-        - "mojito-web:dev"
-        - "mojito-web:latest"
-        - "*"
+        - 'mojito-web:dev'
+        - 'mojito-web:latest'
+        - '*'
     volumes:
       - .:/app
       - node_modules:/app/node_modules
