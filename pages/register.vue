@@ -86,7 +86,7 @@ const register = async (event: MouseEvent) => {
     method: 'POST',
     body: payload,
 
-    onResponse ({ response }) {
+    onResponse({ response }) {
       if (!response.ok) {
         return
       }
@@ -95,7 +95,7 @@ const register = async (event: MouseEvent) => {
       navigateTo('/app')
     },
 
-    onResponseError ({ response }) {
+    onResponseError({ response }) {
       errors.value = response._data
     },
   })

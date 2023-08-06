@@ -4,6 +4,7 @@
   "extends": ["prettier", "@nuxtjs/eslint-config-typescript"],
   "rules": {
     "semi": "off",
-    "comma-dangle": "off"
+    "comma-dangle": "off",
+    "space-before-function-paren": "off"
   }
 }
