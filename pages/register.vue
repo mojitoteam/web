@@ -50,7 +50,7 @@
       <div class="mt-3">
         <p class="text-center text-slate-500">
           Already have an account?
-          <RegisterLink to="/login"> Login instead </RegisterLink>.
+          <RegisterLink to="/login">Login instead</RegisterLink>.
         </p>
       </div>
     </form>
