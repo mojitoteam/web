@@ -1,3 +1,10 @@
 <template>
-  <h1 class="text-center text-3xl font-bold">Welcome!</h1>
+  <div>
+    <h1 class="text-3xl font-bold">
+      Welcome!
+    </h1>
+    <NuxtLink to="/register" class="underline">
+      Register
+    </NuxtLink>
+  </div>
 </template>

@@ -1,10 +1,10 @@
 {
-  "name": "nuxt-app",
+  "name": "mojito-web",
   "private": true,
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",
-    "lint": "eslint --fix .",
+    "lint": "eslint . --fix",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare && husky install"
@@ -14,11 +14,10 @@
     "@commitlint/config-conventional": "^17.6.7",
     "@nuxt/devtools": "latest",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@nuxtjs/eslint-module": "^4.1.0",
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18.17.0",
     "eslint": "^8.46.0",
-    "eslint-config-prettier": "^8.9.0",
+    "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.3",
@@ -29,8 +28,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,vue}": [
-      "eslint --fix",
-      "prettier --write"
+      "eslint . --fix"
     ]
   }
 }
