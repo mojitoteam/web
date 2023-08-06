@@ -39,7 +39,7 @@
           value="Continue"
           class="cursor-pointer rounded-md bg-green-500 py-3 font-semibold text-white duration-150 hover:bg-green-400 hover:shadow-md"
           @click="register"
-        />
+        >
         <span class="text-sm text-slate-500">
           By registering, you agree with Mojito's
           <RegisterLink to="/terms">Terms of Service</RegisterLink> and
@@ -50,7 +50,9 @@
       <div class="mt-3">
         <p class="text-center text-slate-500">
           Already have an account?
-          <RegisterLink to="/login">Login instead</RegisterLink>.
+          <RegisterLink to="/login">
+            Login instead
+          </RegisterLink>.
         </p>
       </div>
     </form>
@@ -84,7 +86,7 @@ const register = async (event: MouseEvent) => {
     method: 'POST',
     body: payload,
 
-    onResponse({ response }) {
+    onResponse ({ response }) {
       if (!response.ok) {
         return
       }
@@ -93,7 +95,7 @@ const register = async (event: MouseEvent) => {
       navigateTo('/app')
     },
 
-    onResponseError({ response }) {
+    onResponseError ({ response }) {
       errors.value = response._data
     },
   })
