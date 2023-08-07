@@ -40,7 +40,7 @@
           Don't have an account?
           <RegisterLink to="/register">
             Create an account
-          </RegisterLink>.
+          </RegisterLink>
         </p>
       </div>
     </form>

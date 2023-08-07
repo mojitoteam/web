@@ -52,7 +52,7 @@
           Already have an account?
           <RegisterLink to="/login">
             Login instead
-          </RegisterLink>.
+          </RegisterLink>
         </p>
       </div>
     </form>
