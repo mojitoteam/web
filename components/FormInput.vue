@@ -21,7 +21,7 @@
       :class="errors.length > 0 ? errorClasses : inputClasses"
       :type="type"
       :required="required"
-    />
+    >
   </div>
 </template>
 
