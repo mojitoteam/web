@@ -30,5 +30,6 @@
     "**/*.{js,ts,vue}": [
       "eslint . --fix"
     ]
-  }
+  },
+  "dependencies": {}
 }
